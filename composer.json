@@ -1,0 +1,17 @@
+{
+    "name": "your-name-here/example",
+    "description": "PLUGIN DESCRIPTION HERE",
+    "type": "wordpress-plugin",
+    "minimum-stability": "stable",
+    "require-dev": {
+        "lucatume/wp-browser": "*"
+    },
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "YOUR NAME HERE",
+            "email": "me@example.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,20 @@
+class_name: MuintegrationTester
+modules:
+    enabled:
+        - \Helper\Integration
+        - WPLoader
+    config:
+        WPLoader:
+            multisite: true
+            wpRootFolder: /Users/Luca/Sites/wp
+            dbName: wp-tests
+            dbHost: 127.0.0.1
+            dbUser: root
+            dbPassword: root
+            tablePrefix: int_wp_
+            domain: wp.dev
+            adminEmail: admin@wp.dev
+            title: WP Tests
+            plugins: [acme/plugin.php]
+            activatePlugins: [acme/plugin.php]
+            bootstrapActions: []
