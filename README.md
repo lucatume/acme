@@ -15,7 +15,7 @@ cd acme
 composer install
 ```
 
-Configure the `integration.suite.yml` and `muintegration.suite.yml` suites updating the two configuration files with your local setup information and finally run the tests:
+Configure the `tests/integration.suite.yml` and `tests/muintegration.suite.yml` suites updating the two configuration files with your local setup information and finally run the tests:
 
 ```shell
 codecept run integration && codecept run muintegration
