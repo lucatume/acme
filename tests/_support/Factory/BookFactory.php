@@ -17,15 +17,21 @@ class BookFactory extends WP_UnitTest_Factory_For_Post {
 		);
 	}
 
-	public function create_with_author_and_reviews( $reviews ) {
-		$author     = ( new AuthorFactory() )->create();
-		$reviewsIds = ( new ReviewFactory() )->create_many( $reviews );
+	public function create_with_author_and_reviews( $goodReviews, $badReviews
+	) {
+		$author = ( new AuthorFactory() )->create();
+		$good = ( new ReviewFactory() )->create_many_good( $goodReviews );
+		$bad = ( new ReviewFactory() )->create_many_bad( $badReviews );
 
-		return $this->create( [
-			'post_parent' => $author,
-			'meta_input'  => [
-				'reviews' => $reviewsIds
-			]
-		] );
+		$bookId = $this->create( [ 'post_parent' => $author ] );
+
+		$allReviews = array_merge( $good, $bad );
+
+		array_walk( $allReviews, function ( $id ) use ( $bookId ) {
+			add_post_meta( $bookId, 'review', $id );
+			add_post_meta($id, 'forBook', $bookId);
+		} );
+
+		return $bookId;
 	}
 }
