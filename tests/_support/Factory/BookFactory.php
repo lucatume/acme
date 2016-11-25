@@ -17,8 +17,7 @@ class BookFactory extends WP_UnitTest_Factory_For_Post {
 		);
 	}
 
-	public function create_with_author_and_reviews( $goodReviews, $badReviews
-	) {
+	public function create_with_author_and_reviews( $goodReviews, $badReviews ) {
 		$author = ( new AuthorFactory() )->create();
 		$good = ( new ReviewFactory() )->create_many_good( $goodReviews );
 		$bad = ( new ReviewFactory() )->create_many_bad( $badReviews );
@@ -29,7 +28,7 @@ class BookFactory extends WP_UnitTest_Factory_For_Post {
 
 		array_walk( $allReviews, function ( $id ) use ( $bookId ) {
 			add_post_meta( $bookId, 'review', $id );
-			add_post_meta($id, 'forBook', $bookId);
+			add_post_meta( $id, 'forBook', $bookId );
 		} );
 
 		return $bookId;

@@ -1,8 +1,8 @@
 <?php
 
-use Acme\TestCase\MyTestCase;
+use Acme\TestCase\MySecondTestCase;
 
-class FactoryTest extends MyTestCase {
+class FactoryTest extends MySecondTestCase {
 
 	/**
 	 * my factory works
